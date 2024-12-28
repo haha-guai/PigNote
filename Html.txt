@@ -1,0 +1,198 @@
+<!DOCTYPE html> 文档声明，表示这是个html页面
+<html></html> 开始和结束的标志
+<head></head> 网页头部，用于定义一些特殊内容
+<body></body> 网页大体
+
+<!--注释--> 前后分别表示注释的开始和结束
+
+（位于head中）
+<title></title> 网页标题
+<meta> 一般用于定义页面特殊信息，这些信息是给搜索引擎看的
+有两个重要属性：name，http-equiv
+
+name:
+keywords，网页的关键字，可以是多个
+description，网页的描述
+author，网页的作者
+copyright，版权信息
+
+实例：
+<meat name="keywords" content="天不生我李猪儿，剑道万古如长夜"/>
+<meat name="description" content="李猪儿的个人小网站"/>
+<meat name="author" content="李猪儿"/>
+<meat name="copyright" content="李猪儿独创，禁止转载，违者必究"/>
+
+http-equiv:
+<meta charset="utf-8"/>     简写，定义网页使用的编码，需要放在title标签和其他meta标签上方
+<meta http-equiv="refresh" content="6;url=http://www.baidu.com"/>
+6秒后自动跳转到url页面
+
+<link> 引入外部css文件
+<style> 定义元素的css样式
+<script> 定义页面的javascript代码或引入js文件
+<base> 无意义
+
+
+静态页面的四大组成元素：
+文字，图片，超链接，音视频
+
+并不是会动的页面就叫动态页面，静动的区别在于是否与服务器进行数据交互
+
+文本标签：
+标题标签，段落标签，换行标签，文本标签，水平线标签，特殊符号
+
+<h1></h1> 标题标签
+共有6个级别的标题标签，h1,h2,...,h6    h为header的缩写，数字越小，字号越大
+# 其实不止6个，h7字体大小和段落文本相近
+
+
+<p></p> 段落标签
+用于表示一段文字，会自动换行
+
+<br/> 换行标签break
+
+效果标签（常用第一个、都不常用）
+粗体标签：strong、b
+斜体标签：em、i、cite
+上标标签：sup
+下标标签：sub
+删除线标签：s
+下划线标签：u
+大字号标签：big
+小字号标签：small
+
+水平线标签： hr （horizon）
+
+div标签：  （division）
+用来划分一个区域，内部可以放其它所有标签
+
+span标签：
+行内元素，用于给文本分组、微调
+
+自闭合标签，有无斜杠均可
+
+块元素：可以容纳其他块元素和行内元素
+行内元素：与其他行内元素位于同一行
+
+特殊符号：
+&nbsp 空格
+
+有序列表 <ol></ol>  <ol type="a">   ordered list
+1,阿拉伯数字：1，2，3，...
+a,小写字母：a,b,c,...
+A,大写字母：A,B,C,...
+i,小写罗马数字：i,ii,iii,...
+I,大写罗马数字：I,II,III,...
+
+无序列表 <ul></ul>  <ul type="disc">    unordered list
+disc,实心圆（默认值）
+circle,空心圆
+square,实心正方形
+
+列表中用<li></li>标签（有序无序同样）表示一项，一个列表可以包含多项
+一般都用无序列表
+一半都用css控制样式，而不用type属性值
+
+定义列表 <dl></dl>  definition list     定义了列表的开始与结束
+dt definition term  定义名词    添加要解释的名词
+dd definition   定义描述    添加该名词具体的解释
+
+表格：
+表格标签：table
+行：tr    table row
+单元格：td     table data cell
+默认情况，表格无边框
+
+HTML只关注结构，CSS才关注样式
+
+表格标题：caption    一个表格只能有一个，位于表格的第一行
+
+表头单元格   th  table header cell   粗体居中
+表行单元格   td
+
+表头：thead，表身：tbody，表脚：tfoot
+
+合并行：<td rowspan="跨越的行数"></td>
+合并列：<td colspan="跨越的列数"></td>
+
+<img src"图片路径" alt="" title=""/>
+src、alt必选，title可选
+alt和title属性的值一般是相同的
+alt用于描述图片，是给搜索引擎看得，图片无法显示时，显示alt中的文字
+title是给用户看的，指针移动到图片上时，会显示title中的文字
+路径：绝对路径，相对路径
+几乎不使用绝对路径，均使用相对路径
+
+超链接：
+<a href="链接地址" target="打开方式">文本或图片</a>
+target:     _self(默认值，原窗口打开链接），_blank（新窗口打开链接）...
+
+外部链接：打开来自外部的链接
+内部链接：打开位于同一个网站根目录下的html文件
+
+锚点链接（内部链接的一种）：跳转到当前页面的某一部分
+<a href="#aaa">...  跳转到id属性为#aaa的地方
+
+表单标签：form,input,textarea,select,option
+单行文本框、密码文本框、单选框、复选框、按钮、文件上传、多行文本框、下拉列表
+
+form标签： 所有表单标签必须放在form标签内部
+name表单名称    区分一个页面中的不同表单
+method提交方式  指定表单数据用哪一种http提交方法，取值：get，post（安全性好，常用）
+action提交地址  指定表单数据提交到那个地址进行处理
+target打开方式  指定窗口打开方式，_blank常用
+enctype编码方式 指定提交的编码方式
+
+input标签 自闭合标签   属性type
+
+    text    单行文本框
+        value：设置文本框默认值（默认显示空白）
+        size：设置文本框长度
+        maxlength：最大可输入字数
+
+    password    密码文本框
+        属性同text
+
+    radio   单选框
+        name：单选按钮所在的组名，必选
+        value：单选按钮的取值，必选，并不是显示的选项文字值
+        checked：设置默认选项，可选，不用填值
+        同一组的选项才是互斥的，所以name必选
+
+    checkbox    多选框
+        属性同radio
+
+    button/submit/reset 按钮
+        普通按钮button  常配合js进行各种操作
+            value：按钮上的文字
+        提交按钮submit  常用于给服务器提交数据 特殊功能的普通按钮
+            value:同上
+        重置按钮reset   常用于清除用户表单中的输入内容 特殊功能的普通按钮
+            value:同上
+            仅清除所在表单的内容
+    file    文件上传
+
+textarea  多行文本框标签   非自闭合，两标签之间内容为默认内容
+    rows：行数
+    cols：列数
+    value:取值
+
+下拉列表    可以看作一种特殊的无序列表
+<select>~<ul>
+    multiple:设置多选，无需值   ctrl多选
+    size：下拉列表显示几个列表项，谷歌浏览器最低选项是4
+<option>~<li>
+    selected：是否选中
+    value:选项值
+
+
+为了语义化，表单元素与后面的文本，一般借助label标签关联
+value是配合js以及服务器进行操作的，技术所有表单元素都有该属性
+
+一些块元素中可以直接放文字
+
+框架：
+iframe标签
+src：链接地址    必选
+width/height：框架大小   可选
+<pre>标签，高级版<p>标签，保留空格换行、等宽字体、长单词换行、嵌套标签

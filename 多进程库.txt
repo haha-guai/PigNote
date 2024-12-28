@@ -1,0 +1,21 @@
+multiprocessing # python的多进程库
+
+
+
+进程与进程之间不能直接共享内存和堆栈资源，且启动新进程开销也比多线程大，因此一般用多线程爬虫
+
+dummy # 包含于multiprocessing
+Pool # 包含于dummy，用于实现线程池
+
+
+实例：
+from multiprocessing.dummy import Pool
+def calc_power2(num): # 定义平方函数
+    return num * num
+pool = Pool(3) # 初始化一个有3个线程的线程池
+origin_num = [x for x in range(10)] # 获得0-9的列表
+result = pool.map(calc_power2, origin_num) # 接受2个参数：函数名，可迭代对象，其中每个元素都会被用作第一个函数的参数
+print(result)
+# 三个线程同时计算，谁先算完取下一个数继续算
+# 由于不涉及I/O操作，在线程锁的影响下，并不能节省时间
+

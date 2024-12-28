@@ -1,0 +1,6 @@
+import request
+a = requests.get(...) # 参数为网址字符串，得到一个网页对象
+b = a.content # 显示bytes型网页源码，该格式下，中文无法正常显示
+c = b.decode() # 将c解码为字符串型原代码，默认为utf-8，若网页源码不是该格式，需在括号中写明目标格式
+
+

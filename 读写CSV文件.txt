@@ -1,0 +1,22 @@
+CSV文件可以用Excel打开
+
+本质上是文本文件
+直接用文本编辑器打开，可读性不高
+
+python自带的csv模块，可以将csv文件内容转换成字典
+
+读取csv文件：
+with open(path, encoding='utf-8') as f: # path为文件路径
+    reader = csv.DictReader(f)
+    for row in reader: # 获得多个有序字典， 表头为键，row（行）中的内容为值
+        print(row)
+# 退出with缩进后，文件即被关闭
+
+写入csv文件：
+with open(path, 'w', encoding='utf-8'): # 'w'为打开模式
+    writer = csv.DictWriter(f, fieldnames=[...]) # 文件对象，值为字典的key的列表（表头）
+    writer.writeheader() # 写入表头
+    writer.writerows(...) # 写入多行数据，参数为含有多个字典的列表
+    writer.writerow(...) # 写入一行数据，参数为字典
+    # 写入的字典可以是无序的，会按照表头自动排序，但不可包含不在表头中的key
+
